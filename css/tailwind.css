@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #8B4513; /* warm earth brown */
+  --color-primary-50: #F7F3F0;
+  --color-primary-100: #EDE4DC;
+  --color-primary-200: #D9C4B0;
+  --color-primary-300: #C5A484;
+  --color-primary-400: #A77E5C;
+  --color-primary-500: #8B4513; /* primary */
+  --color-primary-600: #7A3D11;
+  --color-primary-700: #68350F;
+  --color-primary-800: #562D0D;
+  --color-primary-900: #44250B;
+
+  /* Secondary Colors */
+  --color-secondary: #9CAF88; /* sage green */
+  --color-secondary-50: #F5F7F3;
+  --color-secondary-100: #EAEFE5;
+  --color-secondary-200: #D5DFCB;
+  --color-secondary-300: #C0CFB1;
+  --color-secondary-400: #AEBF9C;
+  --color-secondary-500: #9CAF88; /* secondary */
+  --color-secondary-600: #8A9B78;
+  --color-secondary-700: #788768;
+  --color-secondary-800: #667358;
+  --color-secondary-900: #545F48;
+
+  /* Accent Colors */
+  --color-accent: #D2691E; /* paprika orange */
+  --color-accent-50: #FDF6F1;
+  --color-accent-100: #FAEDE3;
+  --color-accent-200: #F4DBC7;
+  --color-accent-300: #EEC9AB;
+  --color-accent-400: #E8B78F;
+  --color-accent-500: #D2691E; /* accent */
+  --color-accent-600: #BD5E1B;
+  --color-accent-700: #A85318;
+  --color-accent-800: #934815;
+  --color-accent-900: #7E3D12;
+
+  /* Background Colors */
+  --color-background: #FEFCF8; /* warm cream */
+  --color-surface: #F5F2ED; /* subtle warmth */
+
+  /* Text Colors */
+  --color-text-primary: #2C1810; /* rich dark brown */
+  --color-text-secondary: #6B5B4F; /* medium brown */
+
+  /* Status Colors */
+  --color-success: #7BA05B; /* natural green */
+  --color-success-50: #F4F7F1;
+  --color-success-100: #E9EFE3;
+  --color-success-200: #D3DFC7;
+  --color-success-300: #BDCFAB;
+  --color-success-400: #A7BF8F;
+  --color-success-500: #7BA05B; /* success */
+  --color-success-600: #6F9052;
+  --color-success-700: #638049;
+  --color-success-800: #577040;
+  --color-success-900: #4B6037;
+
+  --color-warning: #E6A532; /* golden yellow */
+  --color-warning-50: #FDF9F1;
+  --color-warning-100: #FBF3E3;
+  --color-warning-200: #F7E7C7;
+  --color-warning-300: #F3DBAB;
+  --color-warning-400: #EFCF8F;
+  --color-warning-500: #E6A532; /* warning */
+  --color-warning-600: #CF952D;
+  --color-warning-700: #B88528;
+  --color-warning-800: #A17523;
+  --color-warning-900: #8A651E;
+
+  --color-error: #C65D32; /* muted red-orange */
+  --color-error-50: #FBF4F1;
+  --color-error-100: #F7E9E3;
+  --color-error-200: #EFD3C7;
+  --color-error-300: #E7BDAB;
+  --color-error-400: #DFA78F;
+  --color-error-500: #C65D32; /* error */
+  --color-error-600: #B2542D;
+  --color-error-700: #9E4B28;
+  --color-error-800: #8A4223;
+  --color-error-900: #76391E;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Pro', serif;
+  }
+
+  /* Smooth transitions for interactive elements */
+  button, a, input, textarea, select {
+    transition: all 300ms ease-out;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Custom shadow utilities */
+  .shadow-soft {
+    box-shadow: 0 4px 12px rgba(44, 24, 16, 0.1);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 6px 16px rgba(44, 24, 16, 0.15);
+  }
+
+  /* Animation utilities */
+  .transition-smooth {
+    transition: all 300ms ease-out;
+  }
+
+  .transition-micro {
+    transition: all 200ms ease-out;
+  }
+
+  .transition-content {
+    transition: all 400ms ease-out;
+  }
+}

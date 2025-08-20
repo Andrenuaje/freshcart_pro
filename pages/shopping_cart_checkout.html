@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart & Checkout - FreshCart Pro</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Complete your artisan food purchase with smart meal planning suggestions and sustainable delivery options" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ffreshcart4426back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="homepage.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L20 10H28L22 16L24 24L16 20L8 24L10 16L4 10H12L16 2Z"/>
+                            <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="font-crimson font-semibold text-xl text-primary">FreshCart Pro</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="category_collections.html" class="text-text-secondary hover:text-primary transition-smooth">Shop</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-smooth">Recipes</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-smooth">Producers</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-smooth">Seasonal</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-smooth">Account</a>
+                </nav>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex items-center flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input type="text" placeholder="Search for organic pasta, artisan cheese..." class="w-full pl-10 pr-4 py-2 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                        <svg class="absolute left-3 top-2.5 w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Cart & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <a href="shopping_cart_checkout.html" class="relative p-2 text-accent hover:text-accent-600 transition-smooth">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden p-2 text-text-secondary hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search -->
+        <div class="md:hidden px-4 pb-4">
+            <div class="relative">
+                <input type="text" placeholder="Search products..." class="w-full pl-10 pr-4 py-2 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" />
+                <svg class="absolute left-3 top-2.5 w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="py-4 bg-surface/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <span class="text-primary font-medium">Shopping Cart</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Cart Content -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Cart Items Section -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-xl shadow-soft p-6 mb-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h1 class="font-crimson text-2xl md:text-3xl font-semibold text-primary">Your Cart</h1>
+                            <span class="text-text-secondary">3 items</span>
+                        </div>
+
+                        <!-- Cart Item 1 -->
+                        <div class="border-b border-surface pb-6 mb-6">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <div class="w-full sm:w-24 h-24 rounded-lg overflow-hidden">
+                                    <img src="https://images.pexels.com/photos/4198019/pexels-photo-4198019.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Heritage Grain Sourdough" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=200&auto=format&fit=crop'; this.onerror=null;" />
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                                        <div class="mb-2 sm:mb-0">
+                                            <h3 class="font-crimson text-lg font-semibold text-primary mb-1">Heritage Grain Sourdough</h3>
+                                            <p class="text-text-secondary text-sm mb-1">Artisan Bakery Co. • Sonoma County, CA</p>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="bg-success/10 text-success px-2 py-1 rounded-full text-xs font-medium">Organic</span>
+                                                <span class="bg-secondary/10 text-secondary px-2 py-1 rounded-full text-xs font-medium">Local</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="font-semibold text-primary text-lg">$12.99</p>
+                                            <p class="text-text-secondary text-sm">$12.99 each</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <div class="flex items-center space-x-3">
+                                            <button class="w-8 h-8 rounded-full border border-surface flex items-center justify-center hover:bg-surface transition-smooth">
+                                                <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                                                </svg>
+                                            </button>
+                                            <span class="font-medium text-primary">1</span>
+                                            <button class="w-8 h-8 rounded-full border border-surface flex items-center justify-center hover:bg-surface transition-smooth">
+                                                <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <button class="text-text-secondary hover:text-primary transition-smooth">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="text-error hover:text-error-600 transition-smooth">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cart Item 2 -->
+                        <div class="border-b border-surface pb-6 mb-6">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <div class="w-full sm:w-24 h-24 rounded-lg overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=200&auto=format&fit=crop" alt="Aged Farmhouse Cheddar" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/773253/pexels-photo-773253.jpeg?auto=compress&cs=tinysrgb&w=200'; this.onerror=null;" />
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                                        <div class="mb-2 sm:mb-0">
+                                            <h3 class="font-crimson text-lg font-semibold text-primary mb-1">Aged Farmhouse Cheddar</h3>
+                                            <p class="text-text-secondary text-sm mb-1">Valley Creek Creamery • Vermont</p>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="bg-accent/10 text-accent px-2 py-1 rounded-full text-xs font-medium">Artisan</span>
+                                                <span class="bg-warning/10 text-warning px-2 py-1 rounded-full text-xs font-medium">Award Winner</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="font-semibold text-primary text-lg">$49.98</p>
+                                            <p class="text-text-secondary text-sm">$24.99 each</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <div class="flex items-center space-x-3">
+                                            <button class="w-8 h-8 rounded-full border border-surface flex items-center justify-center hover:bg-surface transition-smooth">
+                                                <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                                                </svg>
+                                            </button>
+                                            <span class="font-medium text-primary">2</span>
+                                            <button class="w-8 h-8 rounded-full border border-surface flex items-center justify-center hover:bg-surface transition-smooth">
+                                                <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <button class="text-accent hover:text-accent-600 transition-smooth">
+                                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="text-error hover:text-error-600 transition-smooth">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cart Item 3 -->
+                        <div class="pb-6">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <div class="w-full sm:w-24 h-24 rounded-lg overflow-hidden">
+                                    <img src="https://images.pexels.com/photos/4198951/pexels-photo-4198951.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Cold-Pressed Olive Oil" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=200&auto=format&fit=crop'; this.onerror=null;" />
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                                        <div class="mb-2 sm:mb-0">
+                                            <h3 class="font-crimson text-lg font-semibold text-primary mb-1">Cold-Pressed Olive Oil</h3>
+                                            <p class="text-text-secondary text-sm mb-1">Mediterranean Grove • Tuscany, Italy</p>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="bg-success/10 text-success px-2 py-1 rounded-full text-xs font-medium">Organic</span>
+                                                <span class="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-medium">Single Estate</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="font-semibold text-primary text-lg">$32.00</p>
+                                            <p class="text-text-secondary text-sm">$32.00 each</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <div class="flex items-center space-x-3">
+                                            <button class="w-8 h-8 rounded-full border border-surface flex items-center justify-center hover:bg-surface transition-smooth">
+                                                <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                                                </svg>
+                                            </button>
+                                            <span class="font-medium text-primary">1</span>
+                                            <button class="w-8 h-8 rounded-full border border-surface flex items-center justify-center hover:bg-surface transition-smooth">
+                                                <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <button class="text-text-secondary hover:text-primary transition-smooth">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="text-error hover:text-error-600 transition-smooth">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Smart Suggestions -->
+                    <div class="bg-gradient-to-br from-accent-50 to-warning-50 rounded-xl p-6 mb-6">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-6 h-6 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                            <h3 class="font-crimson text-xl font-semibold text-primary">Complete Your Meal</h3>
+                        </div>
+                        <p class="text-text-secondary mb-4">Based on your cart, we suggest these perfect pairings:</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-white rounded-lg p-4 shadow-soft hover:shadow-card-hover transition-smooth">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1571197119282-7c4e2b9b8c8f?q=80&w=60&auto=format&fit=crop" alt="San Marzano Tomatoes" class="w-12 h-12 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/1327838/pexels-photo-1327838.jpeg?auto=compress&cs=tinysrgb&w=60'; this.onerror=null;" />
+                                    <div class="flex-1">
+                                        <h4 class="font-medium text-primary">San Marzano Tomatoes</h4>
+                                        <p class="text-sm text-text-secondary">Perfect with your bread & olive oil</p>
+                                        <p class="text-sm font-semibold text-accent">$8.99</p>
+                                    </div>
+                                    <button class="bg-accent hover:bg-accent-600 text-white px-3 py-1 rounded-lg text-sm font-medium transition-smooth">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-4 shadow-soft hover:shadow-card-hover transition-smooth">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.pixabay.com/photo/2016/08/11/08/04/honey-1584546_1280.jpg" alt="Wildflower Honey" class="w-12 h-12 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1587049352846-4a222e784d38?q=80&w=60&auto=format&fit=crop'; this.onerror=null;" />
+                                    <div class="flex-1">
+                                        <h4 class="font-medium text-primary">Wildflower Honey</h4>
+                                        <p class="text-sm text-text-secondary">Complements your cheese selection</p>
+                                        <p class="text-sm font-semibold text-accent">$18.50</p>
+                                    </div>
+                                    <button class="bg-accent hover:bg-accent-600 text-white px-3 py-1 rounded-lg text-sm font-medium transition-smooth">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recipe Suggestions -->
+                    <div class="bg-white rounded-xl shadow-soft p-6">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-6 h-6 text-secondary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                            <h3 class="font-crimson text-xl font-semibold text-primary">Recipe Ideas</h3>
+                        </div>
+                        <p class="text-text-secondary mb-4">Create amazing dishes with your cart items:</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-surface/50 rounded-lg">
+                                <div>
+                                    <h4 class="font-medium text-primary">Artisan Grilled Cheese</h4>
+                                    <p class="text-sm text-text-secondary">Using your sourdough bread and aged cheddar</p>
+                                </div>
+                                <button class="text-accent hover:text-accent-600 font-medium text-sm transition-smooth">
+                                    View Recipe
+                                </button>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-3 bg-surface/50 rounded-lg">
+                                <div>
+                                    <h4 class="font-medium text-primary">Mediterranean Bruschetta</h4>
+                                    <p class="text-sm text-text-secondary">Perfect starter with your olive oil and bread</p>
+                                </div>
+                                <button class="text-accent hover:text-accent-600 font-medium text-sm transition-smooth">
+                                    View Recipe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-xl shadow-soft p-6 sticky top-24">
+                        <h2 class="font-crimson text-xl font-semibold text-primary mb-6">Order Summary</h2>
+                        
+                        <!-- Pricing Breakdown -->
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Subtotal (3 items)</span>
+                                <span class="font-medium text-primary">$94.97</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Shipping</span>
+                                <span class="font-medium text-success">Free</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Tax</span>
+                                <span class="font-medium text-primary">$7.60</span>
+                            </div>
+                            <div class="border-t border-surface pt-3">
+                                <div class="flex justify-between">
+                                    <span class="font-semibold text-primary">Total</span>
+                                    <span class="font-semibold text-primary text-lg">$102.57</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Producer Breakdown -->
+                        <div class="mb-6">
+                            <h3 class="font-medium text-primary mb-3">Supporting These Producers</h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Artisan Bakery Co.</span>
+                                    <span class="text-primary">$12.99</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Valley Creek Creamery</span>
+                                    <span class="text-primary">$49.98</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Mediterranean Grove</span>
+                                    <span class="text-primary">$32.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Options -->
+                        <div class="mb-6">
+                            <h3 class="font-medium text-primary mb-3">Delivery Options</h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border border-surface rounded-lg cursor-pointer hover:bg-surface/30 transition-smooth">
+                                    <input type="radio" name="delivery" value="standard" class="text-accent focus:ring-accent" checked />
+                                    <div class="ml-3 flex-1">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-medium text-primary">Standard Delivery</span>
+                                            <span class="text-success font-medium">Free</span>
+                                        </div>
+                                        <p class="text-sm text-text-secondary">3-5 business days • Carbon neutral</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center p-3 border border-surface rounded-lg cursor-pointer hover:bg-surface/30 transition-smooth">
+                                    <input type="radio" name="delivery" value="express" class="text-accent focus:ring-accent" />
+                                    <div class="ml-3 flex-1">
+                                        <div class="flex justify-between items-center">
+                                            <span class="font-medium text-primary">Express Delivery</span>
+                                            <span class="text-primary font-medium">$12.99</span>
+                                        </div>
+                                        <p class="text-sm text-text-secondary">1-2 business days • Insulated packaging</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="mb-6">
+                            <div class="flex space-x-2">
+                                <input type="text" placeholder="Promo code" class="flex-1 px-3 py-2 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                                <button class="bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition-smooth">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Checkout Button -->
+                        <button class="w-full bg-accent hover:bg-accent-600 text-white py-4 rounded-lg font-semibold text-lg transition-smooth shadow-soft hover:shadow-card-hover mb-4">
+                            Proceed to Checkout
+                        </button>
+
+                        <!-- Security Badges -->
+                        <div class="flex items-center justify-center space-x-4 text-xs text-text-secondary">
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                                Secure Checkout
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                                SSL Protected
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continue Shopping -->
+                    <div class="mt-6 text-center">
+                        <a href="category_collections.html" class="inline-flex items-center text-primary hover:text-accent font-medium transition-smooth">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+                            </svg>
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Process Modal (Hidden by default) -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden">
+        <div class="min-h-screen flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-card-hover max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <!-- Modal Header -->
+                <div class="p-6 border-b border-surface">
+                    <div class="flex items-center justify-between">
+                        <h2 class="font-crimson text-2xl font-semibold text-primary">Secure Checkout</h2>
+                        <button class="text-text-secondary hover:text-primary transition-smooth">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Checkout Form -->
+                <div class="p-6">
+                    <!-- Guest/Account Options -->
+                    <div class="mb-6">
+                        <div class="flex space-x-4 mb-4">
+                            <button class="flex-1 py-3 px-4 border-2 border-accent text-accent bg-accent/5 rounded-lg font-medium transition-smooth">
+                                Guest Checkout
+                            </button>
+                            <button class="flex-1 py-3 px-4 border border-surface text-text-secondary hover:border-primary hover:text-primary rounded-lg font-medium transition-smooth">
+                                Create Account
+                            </button>
+                        </div>
+                        <p class="text-sm text-text-secondary">Create an account to track orders and get personalized recommendations</p>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="mb-6">
+                        <h3 class="font-medium text-primary mb-4">Contact Information</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="First Name" class="px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                            <input type="text" placeholder="Last Name" class="px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                        </div>
+                        <input type="email" placeholder="Email Address" class="w-full mt-4 px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                        <input type="tel" placeholder="Phone Number" class="w-full mt-4 px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <div class="mb-6">
+                        <h3 class="font-medium text-primary mb-4">Shipping Address</h3>
+                        <input type="text" placeholder="Street Address" class="w-full mb-4 px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <input type="text" placeholder="City" class="px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                            <select class="px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth">
+                                <option>State</option>
+                                <option>California</option>
+                                <option>New York</option>
+                                <option>Texas</option>
+                            </select>
+                            <input type="text" placeholder="ZIP Code" class="px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="mb-6">
+                        <h3 class="font-medium text-primary mb-4">Payment Method</h3>
+                        <div class="space-y-3 mb-4">
+                            <label class="flex items-center p-3 border border-surface rounded-lg cursor-pointer hover:bg-surface/30 transition-smooth">
+                                <input type="radio" name="payment" value="card" class="text-accent focus:ring-accent" checked />
+                                <span class="ml-3 font-medium text-primary">Credit/Debit Card</span>
+                                <div class="ml-auto flex space-x-2">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=30&auto=format&fit=crop" alt="Visa" class="w-8 h-5 object-contain" onerror="this.style.display='none'" />
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=30&auto=format&fit=crop" alt="Mastercard" class="w-8 h-5 object-contain" onerror="this.style.display='none'" />
+                                </div>
+                            </label>
+                            <label class="flex items-center p-3 border border-surface rounded-lg cursor-pointer hover:bg-surface/30 transition-smooth">
+                                <input type="radio" name="payment" value="paypal" class="text-accent focus:ring-accent" />
+                                <span class="ml-3 font-medium text-primary">PayPal</span>
+                            </label>
+                            <label class="flex items-center p-3 border border-surface rounded-lg cursor-pointer hover:bg-surface/30 transition-smooth">
+                                <input type="radio" name="payment" value="klarna" class="text-accent focus:ring-accent" />
+                                <span class="ml-3 font-medium text-primary">Buy Now, Pay Later (Klarna)</span>
+                            </label>
+                        </div>
+
+                        <!-- Card Details -->
+                        <div class="space-y-4">
+                            <input type="text" placeholder="Card Number" class="w-full px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" placeholder="MM/YY" class="px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                                <input type="text" placeholder="CVV" class="px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gift Options -->
+                    <div class="mb-6">
+                        <label class="flex items-center mb-4">
+                            <input type="checkbox" class="text-accent focus:ring-accent rounded" />
+                            <span class="ml-3 font-medium text-primary">This is a gift</span>
+                        </label>
+                        <textarea placeholder="Gift message (optional)" class="w-full px-4 py-3 border border-surface rounded-lg bg-surface/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-smooth h-20 resize-none"></textarea>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="bg-surface/50 rounded-lg p-4 mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-text-secondary">Subtotal</span>
+                            <span class="font-medium text-primary">$94.97</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-text-secondary">Shipping</span>
+                            <span class="font-medium text-success">Free</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-text-secondary">Tax</span>
+                            <span class="font-medium text-primary">$7.60</span>
+                        </div>
+                        <div class="border-t border-surface pt-2 mt-2">
+                            <div class="flex justify-between items-center">
+                                <span class="font-semibold text-primary">Total</span>
+                                <span class="font-semibold text-primary text-lg">$102.57</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Place Order Button -->
+                    <button class="w-full bg-accent hover:bg-accent-600 text-white py-4 rounded-lg font-semibold text-lg transition-smooth shadow-soft hover:shadow-card-hover">
+                        Complete Order
+                    </button>
+
+                    <!-- Security Notice -->
+                    <div class="mt-4 text-center text-sm text-text-secondary">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                                256-bit SSL encryption
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 mr-1 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                                PCI compliant
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <svg class="w-8 h-8 text-accent" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L20 10H28L22 16L24 24L16 20L8 24L10 16L4 10H12L16 2Z"/>
+                            <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="font-crimson font-semibold text-xl">FreshCart Pro</span>
+                    </div>
+                    <p class="text-primary-200 mb-6 leading-relaxed">Connecting conscious consumers with artisanal producers through curated culinary experiences.</p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.222.085.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z.017-.001z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-crimson text-lg font-semibold mb-6">Shop</h3>
+                    <ul class="space-y-3">
+                        <li><a href="category_collections.html" class="text-primary-200 hover:text-accent transition-smooth">All Products</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Seasonal Collections</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Artisan Producers</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Gift Boxes</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Subscription Boxes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h3 class="font-crimson text-lg font-semibold mb-6">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Recipes</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Producer Stories</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Sustainability</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Cooking Guides</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Nutrition Info</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="font-crimson text-lg font-semibold mb-6">Support</h3>
+                    <ul class="space-y-3">
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Shipping Info</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Returns</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">FAQ</a></li>
+                        <li><a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-primary-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-primary-200 text-sm mb-4 md:mb-0">© 2025 FreshCart Pro. All Rights Reserved.</p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Privacy Policy</a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Terms of Service</a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-accent transition-smooth">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Checkout modal functionality
+            const checkoutBtn = document.querySelector('.bg-accent.hover\\:bg-accent-600');
+            const checkoutModal = document.getElementById('checkoutModal');
+            
+            if (checkoutBtn && checkoutModal) {
+                checkoutBtn.addEventListener('click', function() {
+                    checkoutModal.classList.remove('hidden');
+                });
+                
+                // Close modal
+                const closeBtn = checkoutModal.querySelector('button');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        checkoutModal.classList.add('hidden');
+                    });
+                }
+                
+                // Close on backdrop click
+                checkoutModal.addEventListener('click', function(e) {
+                    if (e.target === checkoutModal) {
+                        checkoutModal.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
